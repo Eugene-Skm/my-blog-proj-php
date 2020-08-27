@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html charset="UTF-8" ">
+    <head>
+        <title></title>
+        <!--===========================================================-->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="">
+        <link rel="canonical" href="https://????.com">
+        <!--サイト公開時 関係性-->
+        <!--===========================================================-->
+        <link rel="stylesheet" href="page_base.css" charset="UTF-8" ">
+        <link rel="stylesheet" href="lister_style1.css" charset="UTF-8" ">
+        <script src="js/list_type.js" charset="utf-8"></script>
+        <script src="js/page_transition.js" charset="utf-8"></script>
+    </head>
+    <body onload="bol(2)">
+        <div id="page_wrapper">
+            <div id="top_image"></div>
+            <header>
+
+                <div id="main_menu">
+                    <ul>
+                        <li>
+                            <a href="index.html"><img src="svg/home_ic.svg">トップ</a>
+                        </li>
+                        <li>
+                            <a href="articlelist.html"><img src="svg/book_ic.svg">雑記帳</a>
+                        </li>
+                        <li>
+                            <a href="practiceworks.html"><img src="svg/file_ic.svg">練習作</a>
+                        </li>
+                        <li>
+                            <a href="links.html"><img src="svg/link_ic.svg">リンク</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </header>
+            <!--======================================-->
+            <div id="breadcrumbs">
+                <ul>
+                    <li>
+                        <a href="">トップ</a>
+                    </li>
+                    <li>
+                        <a href="">雑記帳</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="main_wrapper">
+                <main>
+					<label for="undergoing_work" class="type_label">進行中</label>
+					<div id="undergoing_work" class="article" onclick="pgt('work.html')">
+
+						<div class="article_thumb_p">
+							<img src="" class="article_thumb_img">
+						</div>
+						<div class="article_detail">
+							<div class="article_info list_detail_item">
+								<div class="article_posted_date">2020/1/2</div>
+								
+							</div>
+							<div class="article_title list_detail_item"><h1>Hello HelloHelloHelloHelloHelloHelloHello Hello</h1></div>
+							<div class="article_description list_detail_item">
+								<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+							</div>
+							<div class="article_categories">
+								<div class="article_category">
+										<a href="d">HTML</a>
+								</div>
+								<div class="article_category">
+										<a href="s">CSS</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<label for="works_list" class="type_label">過去のやつ</label>
+                    <div id="list_type">
+                        <input type="radio" name="list_type_radio" id="column_list" value="COLUMN" onchange="change_check_w()" checked>
+						<label for="column_list" class="list_type_button" id="label_column_list"><img src="svg/list.svg" alt="一覧リスト"></label>
+						<input type="radio" name="list_type_radio" id="bg_column_list" value="BGCOLUMN" onchange="change_check_w()">
+                        <label for="bg_column_list" class="list_type_button" id="label_bg_column_list"><img src="svg/bg_list_ic.svg" alt="一覧リスト"></label>
+                        <input type="radio" name="list_type_radio" id="grid_list"value="GRID" onchange="change_check_w()">
+                        <label for="grid_list" class="list_type_button" id="label_grid_list"><img src="svg/grid.svg" alt="一覧リスト"></label>
+                    </div>
+
+                    <div id="works_list">
+
+                            <div class="article" onclick="pgt('work.html')">
+
+                                <div class="article_thumb_p">
+                                    <img src="" class="article_thumb_img">
+                                </div>
+                                <div class="article_detail">
+                                    <div class="article_info list_detail_item">
+                                        <div class="article_posted_date">2020/1/2</div>
+                                        <div class="article_categories">
+                                        </div>
+                                    </div>
+                                    <div class="article_title list_detail_item"><h1>Hello HelloHelloHelloHelloHelloHelloHello Hello</h1></div>
+                                    <div class="article_description list_detail_item">
+                                        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                                    </div>
+									<div class="article_categories">
+										<div class="article_category">
+												<a href="d">HTML</a>
+										</div>
+										<div class="article_category"><a href="s">CSS</a></div>
+										</div>
+                                </div>
+                            </div>
+                        
+
+                            <div class="article" onclick="pgt('work.html/?a=h')">
+
+                            <div class="article_thumb_p">
+                                <img src="" class="article_thumb_img">
+                            </div>
+                            <div class="article_detail">
+                                <div class="article_info list_detail_item">
+                                    <div class="article_posted_date">2020/1/2</div>
+                                    <div class="article_categories">
+                                        <div class="article_category">
+                                            
+                                                <a href="d">diary</a>
+                                            
+                                        </div>
+                                        <div class="article_category">
+                                            
+                                                <a href="s">diary</a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="article_title list_detail_item"><h1>Hello HelloHelloHelloHelloHelloHelloHello Hello</h1></div>
+                                <div class="article_description list_detail_item">
+                                    <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="article" onclick="pgt('work.html/?a=h')">
+
+                            <div class="article_thumb_p">
+                                <img src="" class="article_thumb_img">
+                            </div>
+                            <div class="article_detail">
+                                <div class="article_info list_detail_item">
+                                    <div class="article_posted_date">2020/1/2</div>
+                                    <div class="article_categories">
+                                        <div class="article_category">
+                                            
+                                                <a href="d">diary</a>
+                                            
+                                        </div>
+                                        <div class="article_category">
+                                            
+                                                <a href="s">diary</a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="article_title list_detail_item"><h1>Hello HelloHelloHelloHelloHelloHelloHello Hello</h1></div>
+                                <div class="article_description list_detail_item">
+                                    <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="article" onclick="pgt('work.html/?a=h')">
+
+                            <div class="article_thumb_p">
+                                <img src="" class="article_thumb_img">
+                            </div>
+                            <div class="article_detail">
+                                <div class="article_info list_detail_item">
+                                    <div class="article_posted_date">2020/1/2</div>
+                                    <div class="article_categories">
+                                        <div class="article_category">
+                                            
+                                                <a href="d">diary</a>
+                                            
+                                        </div>
+                                        <div class="article_category">
+                                            
+                                                <a href="s">diary</a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="article_title list_detail_item"><h1>Hello HelloHelloHelloHelloHelloHelloHello Hello</h1></div>
+                                <div class="article_description list_detail_item">
+                                    <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="article" onclick="pgt('work.html/?a=h')">
+                            <div class="article_thumb_p">
+                                <img src="" class="article_thumb_img">
+                            </div>
+                            <div class="article_detail">
+                                <div class="article_info list_detail_item">
+                                    <div class="article_posted_date">2020/1/2</div>
+                                    <div class="article_categories">
+                                        <div class="article_category">
+                                            
+                                                <a href="d">diary</a>
+                                            
+                                        </div>
+                                        <div class="article_category">
+                                            
+                                                <a href="s">diary</a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="article_title list_detail_item"><h1>Hello HelloHelloHelloHelloHelloHelloHello Hello</h1></div>
+                                <div class="article_description list_detail_item">
+                                    <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                                </div>
+
+                            </div>
+                        </div>
+                   
+
+                </div>
+                <div id="pagenation">
+                    <div class="move" id="prev">
+                        <a href="" class="moves"></a>
+                    </div>
+                    <div id="pgplace">
+                        <div id="nowp">1</div>/<div id="allp">1</div>
+                    </div>
+                    <div class="move" id="next">
+                        <a href="" class="moves"></a>
+                    </div>
+                </div>
+            </main>
+            <aside>
+                <div id="profile_part" class="asidelabel_parts">
+                    <label for="profile_part" class="aside_label"><img src="svg/prof_ic.svg">プロフィール</label>
+                    <div id="profile_img_p">
+                        <img src="img/profile_img.jpg" id="profile_img" alt="プロフィール画像">
+                    </div>
+                    <div id="profile_description" class="asidecontent_detail">
+                        大学3年です。 日々それなりに楽しんで生きてます。
+                    </div>
+                </div>
+                <div id="past_part" class="asidelabel_parts">
+                    <label for="pat_part" class="aside_label"><img src="svg/schejure_ic.svg">過去</label>
+                    <div id="years">
+                        <ul>
+                            <li>
+                                <a href="">2020</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="cat_part" class="asidelabel_parts">
+                    <label for="cat_part" class="aside_label"><img src="svg/tag.ic.svg">カテゴリー</label>
+                    <div id="categories">
+                        <ul>
+                            <li>
+                                <a href="">日記</a>
+                            </li>
+                            <li>
+                                <a href="">Web制作</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <!--======================================-->
+        <footer>
+            <iframe src="footer.html" frameborder="0" scrolling="no"></iframe>
+
+        </footer>
+    </div>
+</body>
+</html>

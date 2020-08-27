@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html charset="UTF-8" ">
+    <head>
+        <title></title>
+        <!--===========================================================-->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="">
+        <link rel="canonical" href="https://????.com">
+        <!--サイト公開時 関係性-->
+        <!--===========================================================-->
+        <link rel="stylesheet" href="page_base.css" charset="UTF-8" ">
+        <link rel="stylesheet" href="work.css" charset="UTF-8" ">
+        <script src="js/img_changer.js" charset="utf-8"></script>
+    </head>
+    <body onload="img_change('img_1')">
+        <div id="page_wrapper">
+            <div id="top_image"></div>
+            <header>
+                
+                <div id="main_menu">
+                    <ul>
+                        <li>
+                            <a href="index.html"><img src="svg/home_ic.svg">トップ</a>
+                        </li>
+                        <li>
+                            <a href="articlelist.html"><img src="svg/book_ic.svg">雑記帳</a>
+                        </li>
+                        <li>
+                            <a href="practiceworks.html"><img src="svg/file_ic.svg">練習作</a>
+                        </li>
+                        <li>
+                            <a href="links.html"><img src="svg/link_ic.svg">リンク</a>
+                        </li>
+                    </ul>
+                </div>
+                
+            </header>
+            <!--======================================-->
+            <div id="breadcrumbs">
+                    <ul>
+                        <li><a href="">トップ</a></li>
+                    </ul>
+                </div>
+            <div id="main_wrapper">
+                <main>
+                    <div id="article_header">
+						<div id="article_title">ピンポンゲーム - Web</div>
+					</div>
+					<article>
+                        <div id="work_display">
+                            <div id="carousel">
+                                <div id="carousel_img_part" >
+                                    <img id="img_1" class="s_img" src="img/sample_img.jpg" alt="">
+                                    <img id="img_2" class="s_img" src="img/sample_img (2).jpg" alt="">
+                                    <img id="img_3" class="s_img" src="img/sample_img (3).jpg" alt="">
+                                    <img id="img_4" class="s_img" src="img/sample_img.jpg" alt="">
+                                    <img id="img_5" class="s_img" src="img/sample_img (2).jpg" alt="">
+                                    <img id="img_6" class="s_img" src="img/sample_img (3).jpg" alt="">
+                                </div>
+                                <div id="img_list">
+                                    <img id="img_1" src="img/sample_img.jpg" alt="" onclick="img_change('img_1')">
+                                    <img id="img_2" src="img/sample_img (2).jpg" alt="" onclick="img_change('img_2')">
+                                    <img id="img_3" src="img/sample_img (3).jpg" alt="" onclick="img_change('img_3')">
+                                    <img id="img_3" src="img/sample_img.jpg" alt="" onclick="img_change('img_4')">
+                                    <img id="img_3" src="img/sample_img (2).jpg" alt="" onclick="img_change('img_5')">
+                                    <img id="img_3" src="img/sample_img (3).jpg" alt="" onclick="img_change('img_6')">
+                                </div>
+                            </div>
+                            <label for="work_details" id="work_detail_label">詳細</label>
+                            <table id="work_details">
+                                <tr class="detail">
+                                    <td >製作期間</td>
+                                    <td id="period">2020/1/20 ~ 2020/4/5</td>
+                                </tr>
+                                <tr class="detail">
+                                    <td>カテゴリ</td>
+                                    <td id="categories">
+                                        <a href=""><div class="category">Web制作</div></a>
+                                    </td>
+                                </tr>
+                                <tr class="detail">
+                                    <td>言語</td>
+                                    <td id="languages">
+                                        <a href=""><div class="language">HTML</div></a>
+                                        <a href=""><div class="language">JavaScript</div></a>
+                                        <a href=""><div class="language">CSS</div></a>
+                                    </td>
+                                </tr>
+                                <tr class="detail">
+                                    <td>使用ソフト</td>
+                                    <td id="softwares">
+                                        <a href=""><div class="software"">VSCode</div></a>
+                                        
+                                    </td>
+                                </tr>
+                                <tr class="detail">
+                                    <td>Github <br>レポジトリ名 </td>
+                                    <td id="github">
+                                        <a class="github" href="https://github.com/yujin-sakuma/html-pingpong-game" target="_blank" rel="noopener">
+                                            <img src="svg/logo-github.svg"><br>
+                                            <label id="repo_name">html-pingpong-game</label>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="detail">
+                                    <td>概要</td>
+                                    <td id="summery">
+                                        
+                                        
+                                    </td>
+                                </tr>
+                                <tr class="detail">
+                                    <td>詳細</td>
+                                    <td id="description">
+                                        
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </article>
+					<footer></footer>
+                </main>
+                <aside>
+                    <div id="profile_part" class="asidelabel_parts">
+                        <label for="profile_part" class="aside_label"><img src="svg/prof_ic.svg">プロフィール</label>
+                        <div id="profile_img_p">
+                            <img src="img/profile_img.jpg" id="profile_img" alt="プロフィール画像">
+                        </div>
+                        <div id="profile_description" class="asidecontent_detail">
+                            大学3年です。 日々それなりに楽しんで生きてます。
+                        </div>
+                    </div>
+                    <div id="past_part" class="asidelabel_parts">
+                        <label for="pat_part" class="aside_label"><img src="svg/schejure_ic.svg">過去</label>
+                        <div id="years">
+                            <ul>
+                                <li><a href="">2020</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="cat_part" class="asidelabel_parts">
+                        <label for="cat_part" class="aside_label"><img src="svg/tag.ic.svg">カテゴリー</label>
+                        <div id="categories">
+                            <ul>
+                                <li><a href="">日記</a></li>
+                                <li><a href="">Web制作</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <!--======================================-->
+            <footer>
+                <iframe src="footer.html" frameborder="0" scrolling="no"></iframe>
+
+            </footer>
+        </div>
+    </body>
+</html>

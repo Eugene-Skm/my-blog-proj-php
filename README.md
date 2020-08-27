@@ -1,2 +1,2 @@
-# my_blog_proj_prphp
+# My_blog_proj
  

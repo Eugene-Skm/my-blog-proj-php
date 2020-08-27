@@ -1,0 +1,167 @@
+#main_wrapper {
+    grid-template-columns: 100%;
+}
+#intro_word{
+	display: block;
+	text-align: left;
+	font-size: 16px;
+	line-height: 38px;
+	padding: 15px;
+}
+aside{
+	display: none;
+}
+main{
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+/*-------------------------------*/
+.article{
+	position: relative;
+	box-sizing: border-box;
+	height: auto;
+	min-height: 120px;
+	padding: 5px 10px 5px 10px;
+	margin: 5px auto 5px auto;
+	display: block;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	background: #ffffff;
+	border-radius: 5px;
+	border: 1px solid #cccccc;
+}
+.article:hover{
+	box-shadow: #777777 0px 2px 2px;
+	background: #eeeeee;
+}
+
+.article_detail{
+	box-sizing: border-box;
+	display: inline-flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+	padding: 5px;
+}
+
+.article_info{
+	display: inline-flex;
+	flex-direction: row;
+	font-size: 14px;
+	color: #777777;
+	height: 20px;
+	
+}
+#articles_list .article_info::after{
+	visibility: visible;
+	content: 'New!';
+	background: #ff786e;
+	border-radius: 2px;
+	border: solid 1px #b4694e;
+}
+#works_list .article_posted_date::after{
+	content: '~';
+}
+.article_posted_date{
+	margin-left: 2px;
+	margin-right: 2px;
+	padding: 1px;
+}
+.article_categories{
+	display: inline-flex;
+	flex-direction: row;
+}
+.article_category{
+	margin-left: 2px;
+	margin-right: 2px;
+	padding: 1px;
+	background: #bbe9a9;
+	border-radius: 2px;
+	border: solid #95c483 1px;
+	cursor: initial;
+}
+.article_category a{
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+.article_title{
+	height: auto;
+	width: 100%;
+	word-break: break-all;
+}
+.article_title h1{
+	margin: initial;  /* 0 */
+	font-size: 24px;
+	font-weight: inherit;text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow:hidden;
+}
+.article_description{
+	font-size: 16px;
+	word-wrap: break-word;
+	color: #555555;
+	height: 65px;
+	overflow: unset;
+	overflow: hidden;
+	width: 100%;
+}
+.article_description p{
+	margin: 0;
+}
+/*https://www.nxworld.net/tips/css-text-truncate.html  長い文章を省略して省略記号を表示*/
+  .article_description p {
+	position: relative;
+	max-height: calc(16 * 1 * 4 * 1px);
+	font-size: 16px;
+	line-height: 1;
+	word-break: break-all;
+	overflow: hidden;
+  }
+  .article_description p::before,
+  .article_description p::after {
+	position: absolute;
+	background: #fff;
+  }
+  .article_description p::before {
+	content: '...';
+	top: calc(16 * 1 * (4 - 1) * 1px);
+	right: 0px;
+	width: 1em;
+  }
+  .article_description p::after {
+	content: '...';
+	width: 100%;
+	height: 100%;
+  }
+.article #pref{
+	position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+}
+.article_detail #jump{
+	text-align: right;
+}
+main > label{
+	display: block;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 20px;
+}
+#note{
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	height: 200px;
+	margin: 0;
+	border: inset 2px;
+	overflow-y: auto;
+	line-height: 1;
+	padding: 2px;
+}

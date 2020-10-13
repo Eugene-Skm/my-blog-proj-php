@@ -102,59 +102,65 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
 					<label for="">いろいろ追加ページ</label>
 					<form method="post" action="addtag.php">
 						<label for="">記事ジャンル追加</label><br>
-						<label for="catid">ジャンルid</label>
-						<input type="text" name="catid">
-						<label for="catname">ジャンル名</label>
-                        <input type="text" name="catname">
+						<label for="id">ジャンルid</label>
+						<input type="text" name="id">
+						<label for="name">ジャンル名</label>
+                        <input type="text" name="name">
+                        <input type="hidden" name="tbname" value="article_categories">
                         <input type="submit" class="subbutton"name="submit">
 					</form>
 					<form method="post" action="addtag.php">
 						<label for="">ツール追加</label><br>
-						<label for="toolid">ツールid</label>
-						<input type="text" name="toolid">
-						<label for="toolname">ツール名</label>
-                        <input type="text" name="toolname">
-                        <input type="submit" class="subbutton" name="submit2">
+						<label for="id">ツールid</label>
+						<input type="text" name="id">
+						<label for="name">ツール名</label>
+                        <input type="text" name="name">
+                        <input type="hidden" name="tbname" value="tools">
+                        <input type="submit" class="subbutton" name="submit">
 					</form>
 					<form method="post" action="addtag.php">
 						<label for="">言語追加</label><br>
-						<label for="langid">言語id</label>
-						<input type="text" name="langid">
-						<label for="langname">言語名</label>
-                        <input type="text" name="langname">
-                        <input type="submit" class="subbutton" name="submit3">
+						<label for="id">言語id</label>
+						<input type="text" name="id">
+						<label for="name">言語名</label>
+                        <input type="text" name="name">
+                        <input type="hidden" name="tbname" value="languages">
+                        <input type="submit" class="subbutton" name="submit">
 					</form>
 					
 					<label for="">いろいろ削除</label>
 					<form method="post" action="addtag.php">
-						<label for="catdid">カテゴリー</label>
-                        <select name="catdid" id="">
+						<label for="id">カテゴリー</label>
+                        <select name="id" id="">
                             <option value="null">--</option>
                             <?php foreach ($cats as $cat) { ?>
-								<option value="<?php echo $cat['category_id'] ?>"><?php echo $cat['category_name'] ?></option>
+								<option value="<?php echo $cat['id'] ?>"><?php echo $cat['named'] ?></option>
 							<?php }?>
 						</select>
-						<input type="submit" class="subbutton" name="submit4" value="削除">
+                        <input type="hidden" name="tbname" value="article_categories">
+						<input type="submit" class="subbutton" name="submit2" value="削除">
 					</form>
 					<form method="post" action="addtag.php">
-						<label for="tooldid">ツール</label>
-                        <select name="tooldid" id="">
+						<label for="id">ツール</label>
+                        <select name="id" id="">
                             <option value="null">--</option>
                             <?php foreach ($tools as $tool) { ?>
-								<option value="<?php echo $tool['tool_id'] ?>"><?php echo $tool['tool_name'] ?></option>
+								<option value="<?php echo $tool['id'] ?>"><?php echo $tool['named'] ?></option>
 							<?php }?>
 						</select>
-						<input type="submit" class="subbutton" name="submit5" value="削除">
+                        <input type="hidden" name="tbname" value="tools">
+						<input type="submit" class="subbutton" name="submit2" value="削除">
 					</form>
 					<form method="post" action="addtag.php">
-						<label for="langdid">言語</label>
-                        <select name="langdid" id="">
+						<label for="id">言語</label>
+                        <select name="id" id="">
                             <option value="null">--</option>
                             <?php foreach ($langs as $lang) { ?>
-								<option value="<?php echo $lang['language_id'] ?>"><?php echo $lang['language_name'] ?></option>
+								<option value="<?php echo $lang['id'] ?>"><?php echo $lang['named'] ?></option>
 							<?php }?>
 						</select>
-						<input type="submit" class="subbutton" name="submit6" value="削除">
+                        <input type="hidden" name="tbname" value="languages">
+						<input type="submit" class="subbutton" name="submit2" value="削除">
 					</form>
 					  aa
                 </main>

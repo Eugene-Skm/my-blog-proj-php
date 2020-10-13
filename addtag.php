@@ -23,11 +23,12 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
 
   $error =  '';
   if (@$_POST['submit']) {
-    $catid = $_POST['catid'];
-    $catname = $_POST['catname'];
-    if (!$catid) $error .= 'ジャンルidがありません。<br>';
-    if (!$catname) $error .= 'ジャンル名がありません。<br>';
-    if(mb_strlen($catid)>20){
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $tname = $_POST['tbname'];
+    if (!$id) $error .= 'ジャンルidがありません。<br>';
+    if (!$name) $error .= 'ジャンル名がありません。<br>';
+    if(mb_strlen($id)>20){
        $error .= 'idが20文字を超えています。<br>';
     }
     if (!$error) {
@@ -35,20 +36,20 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
             $db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
         
       //$pdo = new PDO("mysql:dbname=blog", "root");
-	  $st = $pdo->query("INSERT INTO article_categories(category_id,category_name) VALUES('$catid','$catname')");
+	  $st = $pdo->query("INSERT INTO $tname(id,named) VALUES('$id','$name')");
       header('Location: addtagpage.php');
       exit();
     }
   }
 
 
-if (@$_POST['submit4']) {
-    $dcatid = $_POST['catdid'];
-    
+if (@$_POST['submit2']) {
+    $id = $_POST['id'];
+    $tname = $_POST['tbname'];
     if (!$error) {
 		$pdo = new PDO($dsn, $db['user'], 
 		$db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-		$st = $pdo->query("DELETE FROM article_categories WHERE category_id = '$dcatid'");
+		$st = $pdo->query("DELETE FROM $tname WHERE id = '$id'");
 		echo "削除完了しました";
 	
       header('Location: addtagpage.php');

@@ -1,14 +1,21 @@
+html{
+	display: inline-block;
+	width: 100vh;
+}
 body{
 	display: inline-block;
 	width: 100%;
 	background-color: #333333;
+	padding: 2px;
 }
 small{
 	position: absolute;
 	display: inline-block;
+	left: 0;
 	bottom: 0;
 	width: 100%;
 	margin: 0px;
+	padding-bottom: 2px;
 	text-align: center;
 	color: ivory;
 }

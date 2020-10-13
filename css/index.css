@@ -1,5 +1,5 @@
 #main_wrapper {
-    grid-template-columns: 100%;
+    grid-template-columns: 80% 20%;
 }
 #intro_word{
 	display: block;
@@ -9,28 +9,48 @@
 	padding: 15px;
 }
 aside{
-	display: none;
+	display: inline-block;
 }
 main{
+	width: 100%;
 	padding-left: 5%;
 	padding-right: 5%;
 }
-
+#main_menu li:nth-child(1){
+	border-bottom: 3px solid #444444;
+}
 /*-------------------------------*/
+
+label{
+	display: block;
+	width: 40%;
+	font-size: 20px;
+	text-align: center;
+	font-weight: bold;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 25px;
+	border-bottom: 1px solid #cccccc;
+}
 .article{
 	position: relative;
+	display: grid;
+	flex-direction: row;
+	grid-template-columns: 70% 30%;
 	box-sizing: border-box;
 	height: auto;
-	min-height: 120px;
-	padding: 5px 10px 5px 10px;
+	min-height: 200px;
+	padding: 20px;
 	margin: 5px auto 5px auto;
-	display: block;
-	width: 100%;
+	width: 80%;
+	min-width: 400px;
 	justify-content: center;
 	align-items: center;
 	background: #ffffff;
 	border-radius: 5px;
 	border: 1px solid #cccccc;
+	line-height: 2;
+	box-shadow:  #bbbbbb 0px 0px 10px;
 }
 .article:hover{
 	box-shadow: #777777 0px 2px 2px;
@@ -49,9 +69,9 @@ main{
 .article_info{
 	display: inline-flex;
 	flex-direction: row;
-	font-size: 14px;
+	font-size: 18px;
 	color: #777777;
-	height: 20px;
+	height: 22px;
 	
 }
 #articles_list .article_info::after{
@@ -95,13 +115,13 @@ main{
 }
 .article_title h1{
 	margin: initial;  /* 0 */
-	font-size: 24px;
+	font-size: 22px;
 	font-weight: inherit;text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow:hidden;
 }
 .article_description{
-	font-size: 16px;
+	font-size: 18px;
 	word-wrap: break-word;
 	color: #555555;
 	height: 65px;
@@ -147,21 +167,10 @@ main{
 .article_detail #jump{
 	text-align: right;
 }
-main > label{
-	display: block;
+.article_thumb_p{
+	display: inline-block;
+	position: relative;
 	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	font-size: 20px;
-}
-#note{
-	display: block;
-	box-sizing: border-box;
-	width: 100%;
-	height: 200px;
-	margin: 0;
-	border: inset 2px;
-	overflow-y: auto;
-	line-height: 1;
-	padding: 2px;
+	height: 100%;
+	background-color: khaki;
 }

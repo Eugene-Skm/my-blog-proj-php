@@ -143,7 +143,7 @@ a:visited {
     position: relative;
     display: grid;
     justify-content: center;
-    grid-template-columns:60% 20%;
+    grid-template-columns:60% 25%;
     width: 1400px;
     max-width: 100%;
     height: auto;
@@ -199,88 +199,19 @@ aside {
     border: solid 1px #cccccc00;
     /*box-shadow: #bbbbbb 0px 1px 1px;*/
 }
+aside iframe{
+    position: relative;
+    box-sizing: content-box;
+    display: inline-block;
+    height: 100px;
+    width: 100%;
+    margin: 0;
+}
 .sticked{
 	position: sticky;
 	
 }
-.asidelabel_parts {
-    position: relative;
-    display: inline-flex;
-    box-sizing: border-box;
-    flex-direction: column;
-    width: 100%;
-    /*border: solid 1px #cccccc;*/
-    padding: 5px;
-    background: #ffffff;
-}
-label.aside_label {
-    font-weight: bold;
-    font-size: 20px;
-    padding: 5px;
-    background: #f89538a2;
 
-}
-aside img {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 2px;
-}
-aside .aside_label img {
-    width: 30px;
-}
-
-#profile_part #profile_img_p {
-    position: relative;
-    display: inline-block;
-    width: 120px;
-    height: 120px;
-    padding: 2px;
-}
-#profile_part #profile_img {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-#profile_description {
-    font-size: 14px;
-}
-.asidecontent_detail {
-    word-wrap: break-word;
-    padding: 2px;
-}
-aside a{
-	display: inline-block;
-	width: 100%;
-	height: 100%;
-	text-decoration: none;
-}
-aside ul {
-    display: block;
-    list-style: none;
-    padding-left: 10px;
-}
-aside li{
-	padding: 2px;
-	font-weight: bolder;
-}
-aside li :hover{
-background: #dddddd;
-box-shadow: #cccccc 0px 2px 2px;
-}
-
-.asidelabel_parts #years a::before {
-	content: '＞';
-	
-}
-.asidelabel_parts #categories a::before {
-	content: url('svg/tag.ic.svg');
-	display: inline-block;
-	height: 16px;
-	width: 16px;
-	vertical-align: middle;
-}
 footer {
     position: relative;
     width: 100%;

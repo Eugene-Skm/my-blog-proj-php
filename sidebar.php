@@ -22,9 +22,7 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
         try {
             $pdo = new PDO($dsn, $db['user'], 
             $db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-             //$pdo = new PDO("mysql:dbname=ysta", "ysta");
-              //$st = $pdo->query("SELECT * FROM item WHERE sjanru = 'train' ORDER BY no ASC");
-              $st = $pdo->query("SELECT * FROM article_categories ORDER BY category_count DESC");
+              $st = $pdo->query("SELECT * FROM article_categories Where id != 'null'  ORDER BY category_count DESC");
               $cats = $st->fetchAll();
         }  catch (PDOException $e) {
             $errorMessage = 'データベースエラー';

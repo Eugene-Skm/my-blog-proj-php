@@ -44,8 +44,6 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
 
 /*--------------------------------------------------------------------------------*/
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -74,17 +72,19 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
                 <div id="main_menu">
                     <ul>
                         <li>
-                            <a href="index.html"><img src="svg/home_ic.svg">トップ</a>
+                            <a href="index.php"><img src="svg/home_ic.svg">トップ</a>
                         </li>
                         <li>
-                            <a href="articlelist.html"><img src="svg/book_ic.svg">雑記帳</a>
+                        <a href="articlelist.php"><img src="svg/book_ic.svg">雑記帳</a>
                         </li>
                         <li>
-                            <a href="practiceworks.html"><img src="svg/file_ic.svg">練習作</a>
+                            <a href="practiceworks.php"><img src="svg/file_ic.svg">練習作</a>
                         </li>
                         <li>
-                            <a href="links.html"><img src="svg/link_ic.svg">リンク</a>
+                            <a href="links.php"><img src="svg/link_ic.svg">リンク</a>
                         </li>
+
+
                     </ul>
                 </div>
 
@@ -108,6 +108,7 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
                         <input type="text" name="name">
                         <input type="hidden" name="tbname" value="article_categories">
                         <input type="submit" class="subbutton"name="submit">
+                        
 					</form>
 					<form method="post" action="addtag.php">
 						<label for="">ツール追加</label><br>

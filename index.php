@@ -23,17 +23,19 @@
                 <div id="main_menu">
                     <ul>
                         <li>
-                            <a href="index.html"><img src="svg/home_ic.svg">トップ</a>
+                            <a href="index.php"><img src="svg/home_ic.svg">トップ</a>
                         </li>
                         <li>
-                            <a href="articlelist.html"><img src="svg/book_ic.svg">雑記帳</a>
+                        <a href="articlelist.php"><img src="svg/book_ic.svg">雑記帳</a>
                         </li>
                         <li>
-                            <a href="practiceworks.html"><img src="svg/file_ic.svg">練習作</a>
+                            <a href="practiceworks.php"><img src="svg/file_ic.svg">練習作</a>
                         </li>
                         <li>
-                            <a href="links.html"><img src="svg/link_ic.svg">その他</a>
+                            <a href="links.php"><img src="svg/link_ic.svg">リンク</a>
                         </li>
+
+
                     </ul>
                 </div>
 

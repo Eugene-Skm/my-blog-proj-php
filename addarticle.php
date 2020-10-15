@@ -34,11 +34,8 @@ $db['dbname'] = "brog_db";  // データベース名
 		$cat4 = $_POST['cat4'];
 		$cat5 = $_POST['cat5'];
 		//$tname = $_POST['tbname'];
-		/*if (!$id) $error .= 'ジャンルidがありません。<br>';
-		if (!$name) $error .= 'ジャンル名がありません。<br>';
-		if(mb_strlen($id)>20){
-		$error .= 'idが20文字を超えています。<br>';
-		}*/
+		if (!$title) $error .= 'ジャンルidがありません。<br>';
+		if (!$aid) $error .= 'ジャンル名がありません。<br>';
 		if (!$error) {
 			$pdo = new PDO($dsn, $db['user'], 
 			$db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
@@ -59,27 +56,14 @@ $db['dbname'] = "brog_db";  // データベース名
 
 			header('Location: addarticlepage.php');
 			exit();
+		}else{
+			header('Location: addarticlepage.php');
 		}
 
+		
 
 
   }
 
 
-if (@$_POST['submit2']) {
-    $id = $_POST['id'];
-    $tname = $_POST['tbname'];
-    if (!$error) {
-		$pdo = new PDO($dsn, $db['user'], 
-		$db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-		$st = $pdo->query("DELETE FROM $tname WHERE id = '$id'");
-		echo "削除完了しました";
-	
-      header('Location: addtagpage.php');
-      exit();
-    }
-  }
-  require 'addtagpage.php';
 
-
-?>

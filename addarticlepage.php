@@ -29,12 +29,11 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
              //$pdo = new PDO("mysql:dbname=ysta", "ysta");
              
               //$st = $pdo->query("SELECT * FROM item WHERE sjanru = 'train' ORDER BY no ASC");
-              $st = $pdo->query("SELECT * FROM article_categories");
+              $st = $pdo->query("SELECT * FROM article_categories Where id != 'null'  ORDER BY category_count DESC");
               $cats = $st->fetchAll();
 
 
               $arid= uniqid(mt_rand());
-              $imid= uniqid(mt_rand());;
 
             /*  $st1 = $pdo->query("SELECT * FROM languages");
               $langs = $st1->fetchAll();
@@ -127,10 +126,10 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
                         <input type="hidden" name="artid" value="<?php echo $arid ?>">
 
                         <label for="title">タイトル</label>
-                        <input type="text" name="title">
+                        <input type="text" name="title" id="atitle">
 
                         <label for="title">概要</label>
-                        <input type="text" name="description"">
+                        <input type="text" name="description"id="description">
 
                         <div id="editor">
                             
@@ -178,12 +177,16 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
 						<!--<input id="x" type="hidden" name="content">
                         <trix-editor input="x"></trix-editor>-->
                         
-                        <p>サムネ画像</p>
-                        <input type="file" name="thumbimage">
-                        <input type="hidden" name="imgid" value="<?php echo $imid ?>">
-
+                        <p>サムネ画像</p>                        
+                        <div id="imgselectpart">
+                            <div id="thumsamplewrap">
+                                <img src="" alt="サムネ画像" id="thumbsample">
+                            </div>
+                            <input type="button" id="imgbutton" onclick="openimgchoice()" value="サムネ選択" style="margin: 0px;">
+                            <label for="" id="imgname"></label>
+                        </div>
                         <label for="postday">投稿日(解禁日)</label>
-                        <input type="date" id="pday" name="postday">
+                        <input type="date" id="pday" name="postday" value="<?php echo date('Y-m-d');?>">
 
                         <label for="cat1">カテゴリー</label>
                         <select name="cat1" id="">
@@ -217,7 +220,7 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
 							<?php }?>
 						</select> 
                         <br>
-                        <input type="submit" class="subbutton" name="submit">
+                        <input type="submit" class="subbutton" name="submit" id="submit" disabled>
                         
                       </form>
                       

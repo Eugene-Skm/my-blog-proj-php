@@ -21,7 +21,7 @@ $db['dbname'] = "brog_db";  // データベース名
 	}
 
   $error =  '';
-  if (@$_POST['submit']) {
+if (@$_POST['submit']) {
 		$iid = $_POST['imgid'];
 		//$tname = $_POST['tbname'];
 		/*if (!$id) $error .= 'ジャンルidがありません。<br>';
@@ -29,7 +29,7 @@ $db['dbname'] = "brog_db";  // データベース名
 		if(mb_strlen($id)>20){
 		$error .= 'idが20文字を超えています。<br>';
 		}*/
-		if (!$error) {
+	if (!$error) {
 			$pdo = new PDO($dsn, $db['user'], 
 			$db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 			
@@ -46,24 +46,55 @@ $db['dbname'] = "brog_db";  // データベース名
 			exit();
 		}
 
-
-
   }
 
 
 if (@$_POST['submit2']) {
-    $imgid = $_POST['imgselect'];
+    $imgid = $_POST['imid'];
+    $imgnm = $_POST['imgselect'];
     if (!$error) {
-		$pdo = new PDO($dsn, $db['user'], 
-		$db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-		$st = $pdo->query("DELETE FROM $imgs WHERE imgid = '$id'");
-		echo "削除完了しました";
-	
-      header('Location: imglistpage.php');
+		if(file_exists ("blogimgs/".$imgnm)){
+			var_dump("blogimgs/". $imgnm);
+			unlink("blogimgs/". $imgnm);
+			$pdo = new PDO($dsn, $db['user'], 
+			$db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+			$st = $pdo->query("DELETE FROM imgs WHERE imgid = '$imgid'");
+			echo "削除完了しました";
+		}
+		
+     header('Location: imglistpage.php');
       exit();
     }
   }
-  require 'imglistpage.php';
 
 
+  if (@$_POST['submit4']) {
+	var_dump($_FILES);
+		$iid = $_POST['imgid'];
+		$ialt = $_POST['imgalt'];
+		//$tname = $_POST['tbname'];
+		if (!$error) {
+			$pdo = new PDO($dsn, $db['user'], 
+			$db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+			$image = uniqid(mt_rand(), true);//ファイル名をユニーク化
+			$image .= '.' . substr(strrchr($_FILES['newimg']['name'], '.'), 1);//元ファイルの拡張子を取得誤接続
+			$sql = "INSERT INTO imgs(imgid,fname,textalt) VALUES ('$iid','$image','$ialt')";
+			$stmt = $pdo->prepare($sql);
+			if (!empty($_FILES['newimg']['name'])) {//ファイルが選択されていれば
+				move_uploaded_file($_FILES['newimg']['tmp_name'], 'blogimgs/'.$image);//ディレクトリにファイル保存
+				$stmt->execute();
+			}
+
+
+			header('Location: imglistpage.php');
+			
+			exit();
+		}else{
+			//require 'addtagpage.php';
+		}
+
+
+	}else{
+	}
+	require 'imglistpage.php';
 ?>

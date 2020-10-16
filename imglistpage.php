@@ -42,6 +42,7 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
         }
 
 /*--------------------------------------------------------------------------------*/
+$imid= uniqid(mt_rand());
 
 ?>
 
@@ -75,16 +76,6 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
         <div id="page_wrapper">
             <div id="top_image"></div>
             <header>
-            <?php
-                function console_log( $data ){
-                echo '<script>';
-                echo 'console.log('. json_encode( $data ) .')';
-                echo '</script>';
-                }
-
-                $myvar = array(1,2,3);
-                console_log( $myvar ); // [1,2,3]
-            ?>
                 <div id="main_menu">
                     <ul>
                         <li>
@@ -104,6 +95,22 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
 
             </header>
             <!--======================================-->
+            <div id="main_wrapper">
+                <div id="modalwrap">
+                    <div id="modal">
+                        <label for=""><h4>画像追加</h4></label>
+                        <form action="imglist.php" method="post" enctype="multipart/form-data">
+                            <fieldset class="imgparts">
+                                <input type="hidden"  name="imgid" value="<?php echo $imid ?>">
+                                <input type="file" accept="image/*" name="newimg">
+                                <label for="" class="imgwrap">画像説明</label>
+                                <input type="text" name="imgalt">
+                            </fieldset>
+                            <input type="submit" name="submit4" onclick="" value="アップロード">
+                            <input type="button" name="cancel" onclick="document.getElementById('modalwrap').style.display='none'" value="キャンセル">
+                        </form>
+                    </div>
+                </div>  
             <div id="breadcrumbs">
                 <ul>
                     <li>
@@ -111,13 +118,19 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
                     </li>
                 </ul>
             </div>
-            <div id="main_wrapper">
+            
 				<main>
                     <label for="">画像数(記事内除く)：<?php echo $imct ?></label>
                     <form method="post" action="imglist.php" enctype="multipart/form-data">
+                    <div id="buttons">
+                        <input type="button" class="subbutton" name="submit" value="新画像追加" onclick="newimagepage()">
+                        <input type="submit" class="subbutton" name="submit2"value="削除">
+                        <input type="button" class="subbutton" name="submit3" value="使う" onclick="imgselected()">
+                    </div>
 					<div id ="imglist">
                         <?php foreach ($ists as $img) { ?>
                             <div class="imgwrap">
+                            <input type="hidden"  name="imid" value="<?php echo $img['imgid'] ?>">
                                 <input type="radio" name="imgselect" id="<?php echo $img['imgid'] ?>" class="imselradio" value="<?php echo $img['fname'] ?>">
                                 <label for="<?php echo $img['imgid'] ?>" class="img">
                                     <img src="blogimgs/<?php echo $img['fname'] ?>" alt="">
@@ -128,11 +141,7 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
                             
                         <?php  } ?>
                     </div>
-                    <div id="buttons">
-                        <input type="button" class="subbutton" name="submit" value="新画像追加" onclick="newimagepage()">
-                        <input type="submit" class="subbutton" name="submit2"value="削除">
-                        <input type="button" class="subbutton" name="submit3" value="使う" onclick="imgselected()">
-                    </div>
+                    
                     </form>
 				</main>
                 

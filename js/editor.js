@@ -1,24 +1,42 @@
 var sname="";
 localStorage.setItem('useimgID', "null");
 
+setTimeout('x()',2000);
 
-setInterval(function(){
-	document.getElementById("editorh").value=document.getElementById("editor").innerHTML;
+function x(){
+	console.log("X")
 	sname=localStorage.getItem("useimgID");
 	if(sname!="null"){
-		document.getElementById("imgname").innerHTML=sname;
-		document.getElementById("thumbsample").src="blogimgs/"+sname;
-		document.getElementById("thumsamplewrap").style.display="inline-flex";
+		valueset(sname);
+		sname=""
+		localStorage.setItem('useimgID', "null");
 	}
 	titlec=document.getElementById("atitle").value.length;
 	discc=document.getElementById("description").value.length;
-	contc=document.getElementById("editorh").value.length;
+	contc=document.getElementById("editor-input").value.length;
 	if(titlec>=5&&discc>=10&&contc>=400){
-		document.getElementById("submit").disabled=false;
+		try{
+			document.getElementById("submit").disabled=false;
+		}catch(e){}
+		try{
+			document.getElementById("submit2").disabled=false;
+		}catch(e){}
+	
 	}else{
-		document.getElementById("submit").disabled=true;
+		try{
+			document.getElementById("submit").disabled=false;
+		}catch(e){}
+		try{
+			document.getElementById("submit2").disabled=false;
+		}catch(e){}
 	}
-},2000)
+	setTimeout(x,2000);
+}
+function valueset(sn){
+	document.getElementById("imgname").innerHTML=sn;
+	document.getElementById("thumbsample").src="blogimgs/"+sn;
+	document.getElementById("thumsamplewrap").style.display="inline-flex";
+}
 
 function openimgchoice(){
 	localStorage.setItem('useimgID', "null");

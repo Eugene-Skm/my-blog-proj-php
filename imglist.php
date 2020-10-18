@@ -49,22 +49,31 @@ if (@$_POST['submit']) {
   }
 
 
-if (@$_POST['submit2']) {
-    $imgid = $_POST['imid'];
-    $imgnm = $_POST['imgselect'];
-    if (!$error) {
-		if(file_exists ("blogimgs/".$imgnm)){
-			var_dump("blogimgs/". $imgnm);
-			unlink("blogimgs/". $imgnm);
-			$pdo = new PDO($dsn, $db['user'], 
-			$db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-			$st = $pdo->query("DELETE FROM imgs WHERE imgid = '$imgid'");
-			echo "削除完了しました";
+if (@$_POST['submit1']) {
+    //$imgid = $_POST['pimid'];
+	$imgid = $_POST['imgselect'];
+	try{
+		$pdo = new PDO($dsn, $db['user'], 
+		$db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+		$st = $pdo->query("SELECT fname FROM imgs WHERE imgid = '$imgid'");
+		$iname= $st ->fetchAll();
+		$imgnm = $iname[0]['fname'];
+		if (!$error) {
+			if(file_exists ("blogimgs/".$imgnm)){
+				var_dump("blogimgs/". $imgnm);
+
+				$st2 = $pdo->query("DELETE FROM imgs WHERE imgid = '$imgid'");
+				unlink("blogimgs/". $imgnm);
+				echo "削除完了しました";
+			}
+			
+			//header('Location: imglistpage.php');
+			exit();
 		}
-		
-     header('Location: imglistpage.php');
-      exit();
-    }
+	}catch(PDOException $e){
+
+	}
+    
   }
 
 
@@ -84,10 +93,7 @@ if (@$_POST['submit2']) {
 				move_uploaded_file($_FILES['newimg']['tmp_name'], 'blogimgs/'.$image);//ディレクトリにファイル保存
 				$stmt->execute();
 			}
-
-
 			header('Location: imglistpage.php');
-			
 			exit();
 		}else{
 			//require 'addtagpage.php';
@@ -96,5 +102,30 @@ if (@$_POST['submit2']) {
 
 	}else{
 	}
+
+	
+	if (@$_POST['submit5']) {
+			$iid = $_POST['Eimgid'];
+			$ialt = $_POST['imgalt'];
+			//$tname = $_POST['tbname'];
+			var_dump($iid,$ialt);
+			!$error='';
+			if (!$error) {
+				$pdo = new PDO($dsn, $db['user'], 
+				$db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+				
+				$sql = "UPDATE imgs SET textalt='$ialt' WHERE imgid='$iid'";
+				$stmt = $pdo->prepare($sql);
+				$stmt->execute();
+				
+				header('Location: imglistpage.php');
+				exit();
+			}else{
+			}
+	
+	
+	}else{
+	}
+	
 	require 'imglistpage.php';
 ?>

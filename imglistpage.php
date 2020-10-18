@@ -102,11 +102,13 @@ $imid= uniqid(mt_rand());
                         <form action="imglist.php" method="post" enctype="multipart/form-data">
                             <fieldset class="imgparts">
                                 <input type="hidden"  name="imgid" value="<?php echo $imid ?>">
-                                <input type="file" accept="image/*" name="newimg">
+                                <input type="hidden"  name="Eimgid" id="Eimgid" value="">
+                                <input type="file" id="iminput" accept="image/*" name="newimg">
                                 <label for="" class="imgwrap">画像説明</label>
-                                <input type="text" name="imgalt">
+                                <input type="text" name="imgalt" id="Eimalt" value="">
                             </fieldset>
-                            <input type="submit" name="submit4" onclick="" value="アップロード">
+                            <input type="submit" name="submit4" id="upl" onclick="" value="アップロード">
+                            <input type="submit" name="submit5" id="upd" onclick="" value="アップデート">
                             <input type="button" name="cancel" onclick="document.getElementById('modalwrap').style.display='none'" value="キャンセル">
                         </form>
                     </div>
@@ -121,22 +123,23 @@ $imid= uniqid(mt_rand());
             
 				<main>
                     <label for="">画像数(記事内除く)：<?php echo $imct ?></label>
-                    <form method="post" action="imglist.php" enctype="multipart/form-data">
+                    <form method="POST" action="imglist.php" enctype="multipart/form-data">
                     <div id="buttons">
                         <input type="button" class="subbutton" name="submit" value="新画像追加" onclick="newimagepage()">
-                        <input type="submit" class="subbutton" name="submit2"value="削除">
+                        <input type="submit" class="subbutton" name="submit1" value="削除" > 
+                        <input type="button" class="subbutton" name="submit2" value="説明編集" onclick="eimagepage()">
                         <input type="button" class="subbutton" name="submit3" value="使う" onclick="imgselected()">
                     </div>
 					<div id ="imglist">
                         <?php foreach ($ists as $img) { ?>
                             <div class="imgwrap">
-                            <input type="hidden"  name="imid" value="<?php echo $img['imgid'] ?>">
-                                <input type="radio" name="imgselect" id="<?php echo $img['imgid'] ?>" class="imselradio" value="<?php echo $img['fname'] ?>">
+                            <input type="hidden"  name="pimid" value="<?php echo $img['imgid'] ?>">
+                                <input type="radio" name="imgselect" id="<?php echo $img['imgid'] ?>" class="imselradio" value="<?php echo $img['imgid'] ?>">
                                 <label for="<?php echo $img['imgid'] ?>" class="img">
                                     <img src="blogimgs/<?php echo $img['fname'] ?>" alt="">
                                 </label>
                                 <label for="" class="imgalt"><?php echo $img['fname'] ?></label>
-                                <label for="" class="imgalt"><?php echo $img['textalt'] ?></label>
+                                <label for="" class="imgalt" id="ALT-<?php echo $img['imgid']?>"><?php echo $img['textalt'] ?></label>
                             </div>
                             
                         <?php  } ?>

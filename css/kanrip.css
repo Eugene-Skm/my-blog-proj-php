@@ -124,10 +124,13 @@ select{
 /*---新画像追加-*/
 #modalwrap{
   display: none;
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   z-index: 99;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
   background-color: rgba(70, 70, 70, 0.315);
 }
 #modal{
@@ -137,7 +140,7 @@ select{
   height: 300px;
   padding: 15px;
   border: 1px solid #555555 ;
-  top: 10%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   background-color: #ffffff;
@@ -151,6 +154,14 @@ select{
   display: inline-block;
   box-sizing: border-box;
   width: 100%;
+}
+#Eimalt{
+  box-sizing: border-box;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #111111;
+  border-radius: 5px;
+  
 }
 .imgparts input,
 .imgparts label{

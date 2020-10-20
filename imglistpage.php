@@ -57,6 +57,8 @@ $imid= uniqid(mt_rand());
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="description" content="">
         <link rel="canonical" href="https://????.com">
+		<meta name="robots" content="noindex,nofollow">
+
         <!--サイト公開時 関係性-->
         <!--===========================================================-->
         <link rel="stylesheet" href="css/page_base.css" charset="UTF-8">
@@ -68,6 +70,7 @@ $imid= uniqid(mt_rand());
         <link rel="stylesheet" type="text/css" href="trix/trix.css">
         <script src="trix/trix-core.js"></script>
         
+        <script src="js/load.js"></script>
 		
 		<script src="js/imglist.js"></script>
 
@@ -76,22 +79,26 @@ $imid= uniqid(mt_rand());
         <div id="page_wrapper">
             <div id="top_image"></div>
             <header>
+            <iframe width="100%" src="headermenu.html" id="hbar" frameborder="0" scrolling="no" onload="headjuster()"></iframe>
+<!--
                 <div id="main_menu">
                     <ul>
                         <li>
-                            <a href="index.php"><img src="svg/home_ic.svg">トップ</a>
+                            <a href="index.php"><img src="icon/home32.png">トップ</a>
                         </li>
                         <li>
-                            <a href="articlelist.php"><img src="svg/book_ic.svg">雑記帳</a>
+                        <a href="articlelist.php"><img src="icon/book32.png">雑記帳</a>
                         </li>
                         <li>
-                            <a href="practiceworks.php"><img src="svg/file_ic.svg">練習作</a>
+                            <a href="practiceworks.php"><img src="icon/folder32.png">練習作</a>
                         </li>
                         <li>
-                            <a href="links.php"><img src="svg/link_ic.svg">リンク</a>
+                            <a href="links.php"><img src="icon/Link32.png">リンク</a>
                         </li>
+
+
                     </ul>
-                </div>
+                </div>-->
 
             </header>
             <!--======================================-->
@@ -134,7 +141,7 @@ $imid= uniqid(mt_rand());
                         <?php foreach ($ists as $img) { ?>
                             <div class="imgwrap">
                             <input type="hidden"  name="pimid" value="<?php echo $img['imgid'] ?>">
-                                <input type="radio" name="imgselect" id="<?php echo $img['imgid'] ?>" class="imselradio" value="<?php echo $img['imgid'] ?>">
+                                <input type="radio" name="imgselect" id="<?php echo $img['imgid'] ?>" class="imselradio" value="<?php echo $img['fname'] ?>">
                                 <label for="<?php echo $img['imgid'] ?>" class="img">
                                     <img src="blogimgs/<?php echo $img['fname'] ?>" alt="">
                                 </label>

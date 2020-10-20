@@ -52,16 +52,16 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
     </head>
     <body>
 		<div id="profile_part" class="asidelabel_parts">
-			<label for="profile_part" class="aside_label"><img src="svg/prof_ic.svg">プロフィール</label>
+			<label for="profile_part" class="aside_label"><img src="icon/profile32.png">プロフィール</label>
 			<div id="profile_img_p">
-				<img src="img/profile_img.jpg" id="profile_img" alt="プロフィール画像">
+				<img src="icon/profile32.png" id="profile_img" alt="プロフィール画像">
 			</div>
 			<div id="profile_description" class="asidecontent_detail">
 				大学3年です。 日々それなりに楽しんで生きてます。
 			</div>
 		</div>
 		<div id="past_part" class="asidelabel_parts">
-			<label for="pat_part" class="aside_label"><img src="svg/schejure_ic.svg">過去</label>
+			<label for="pat_part" class="aside_label"><img src="icon/calender32.png">過去</label>
 			<div id="years">
 				<ul>
 					<li>
@@ -71,12 +71,12 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
 			</div>
 		</div>
 		<div id="cat_part" class="asidelabel_parts">
-			<label for="cat_part" class="aside_label"><img src="svg/tag.ic.svg">カテゴリー</label>
+			<label for="cat_part" class="aside_label"><img src="icon/tag32.png">カテゴリー</label>
 			<div id="categories">
 				<ul>
 					<?php foreach ($cats as $cat) { ?>
 							<li>
-								<a href="/articlelist.php/?cat=<?php echo $cat['id'] ?>">
+								<a href="/articlelist.php/?cat=<?php echo $cat['id'] ?>" target="_parent">
 								<?php echo $cat['named'] ?>
 								(<?php echo $cat['category_count'] ?>)</a>
 							</li>

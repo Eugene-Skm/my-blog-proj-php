@@ -51,18 +51,19 @@ if (@$_POST['submit']) {
 
 if (@$_POST['submit1']) {
     //$imgid = $_POST['pimid'];
-	$imgid = $_POST['imgselect'];
+	$imgnm = $_POST['imgselect'];
 	try{
 		$pdo = new PDO($dsn, $db['user'], 
 		$db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-		$st = $pdo->query("SELECT fname FROM imgs WHERE imgid = '$imgid'");
-		$iname= $st ->fetchAll();
-		$imgnm = $iname[0]['fname'];
+		//$st = $pdo->query("SELECT fname FROM imgs WHERE imgid = '$imgid'");
+		//$iname= $st ->fetchAll();
+		//$imgnm = $iname[0]['fname'];
 		if (!$error) {
 			if(file_exists ("blogimgs/".$imgnm)){
 				var_dump("blogimgs/". $imgnm);
 
-				$st2 = $pdo->query("DELETE FROM imgs WHERE imgid = '$imgid'");
+				//$st2 = $pdo->query("DELETE FROM imgs WHERE imgid = '$imgid'");
+				$st2 = $pdo->query("DELETE FROM imgs WHERE imgid in (SELECT imgid from imgs WHERE fname='$imgnm')");
 				unlink("blogimgs/". $imgnm);
 				echo "削除完了しました";
 			}

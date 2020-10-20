@@ -174,3 +174,12 @@ label{
 	height: 100%;
 	background-color: khaki;
 }
+
+@media(max-width:900px) {
+    #main_wrapper {
+        grid-template-columns: 100%;
+	}
+	main{
+		border-bottom: 1px solid #cccccc;
+	}
+}

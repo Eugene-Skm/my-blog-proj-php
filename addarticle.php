@@ -43,7 +43,7 @@ $cat5 = $_POST['cat5'];
 			$st = $pdo->query("INSERT INTO articles(article_id,postday,title,descript,content,thumb,category_id1,category_id2,category_id3,category_id4,category_id5) VALUES('$aid','$pday','$title','$describ','$cont','$iid','$cat1','$cat2','$cat3','$cat4','$cat5')");
 			
 
-			header('Location: addarticlepage.php');
+			header('Location: adminarticlespage.php?WorA=A');
 			exit();
 		}
 
@@ -59,7 +59,7 @@ if (@$_POST['submit2']) {
 		$Eday=date('Y-m-d');
 		$st = $pdo->query("UPDATE articles SET editedday='$Eday', title='$title',descript='$describ',content='$cont',thumb='$iid',category_id1='$cat1',category_id2='$cat2',category_id3='$cat3',category_id4='$cat4',category_id5='$cat5' WHERE article_id='$aid'");
 
-		header('Location: addarticlepage.php');
+		header('Location: adminarticlespage.php?WorA=A');
 		exit();
 	}
 }

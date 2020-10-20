@@ -7,7 +7,7 @@ function imgselected(){
 	var b = elements[t].id;
 
 	window.opener.form.imid.value=b;
-	localStorage.setItem('useimgID', a);
+	localStorage.setItem('useimgID', b);
 	window.close();
 }
 function newimagepage(){

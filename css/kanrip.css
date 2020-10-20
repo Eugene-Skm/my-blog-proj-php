@@ -41,7 +41,12 @@ form input{
   width: 100%;
 }
 select{
+  position: relative;
+  display: inline-flex;
+  box-sizing: border-box;
+  margin: 5px;
   width: 100px;
+  border: 1px solid #000000;
 }
 #pday{
   width: 200px;
@@ -146,6 +151,14 @@ select{
   background-color: #ffffff;
 
 }
+fieldset{
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+
+}
 #newwrapper{
   display: inline-block;
   width: 100%;
@@ -170,4 +183,140 @@ select{
   height: auto;
   width: 100%;
   padding: 5px;
+}
+/*---------------記事リストページ-------------------*/
+:root{
+	box-sizing: border-box;
+}
+main{
+	background: none;
+	border: none;
+	box-shadow: none;
+}
+
+#articles_list{
+	display: grid;
+	grid-template-columns: 100%;
+	padding: 5px;
+}
+.article_container{
+	display: inline-block;
+	box-sizing: border-box;
+	margin: 5px;
+}
+.article{
+  position: relative;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 50% 10% 25% 5% 5% 5%;
+	height: auto;
+	padding: 15px;
+	margin: 5px;
+  align-items: center;
+  border: 1px solid #000000;
+}
+.article a{
+	position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+}
+#tag label{
+  display: inline-block;
+  box-sizing: border-box;
+}
+.article_detail{
+	box-sizing: border-box;
+	display: inline-flex;
+	flex-direction: column;
+	height: 100%;
+	padding: 15px;
+}
+
+.article_categories{
+	display: inline-flex;
+	flex-direction: row;
+}
+.article_category{
+	margin-left: 2px;
+	margin-right: 2px;
+	padding: 1px;
+	background: #bbe9a9;
+	border-radius: 2px;
+	border: solid #95c483 1px;
+  cursor: initial;
+  line-height: 140%;
+}
+.article_category a{
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+.article_title h1{
+	margin: initial;  /* 0 */
+	font-size: 22px;
+  font-weight: normal;
+  text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow:hidden;
+}
+
+#pagenation{
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  align-items: center;
+  margin: 10px 0px;
+}
+#pagenation div{
+	display: inline-block;
+	border-radius: 5px;
+	
+}
+#pagenation >div{
+	padding: 4px;
+}
+#pgplace{
+	background: #9bcc87;
+	border: solid 1px #cccccc;
+	margin: 0px 5px 0px 5px;
+}
+
+.move{
+	display: inline-block;
+	box-sizing: border-box;
+	cursor: pointer;
+	width: 25px;
+	height: 25px;
+	padding: 4px;
+}
+.move:hover{
+	background: #cccccc;
+}
+.moves{
+	position: relative;
+	display: inline-block;
+	box-sizing: border-box;
+	width: 100%;
+  height: 100%;
+  margin: 0;
+	border: 2px solid;
+	border-left: 0;
+	border-bottom: 0;
+	
+}
+#prev{
+	transform: rotate(-135deg);
+}
+#next{
+	transform: rotate(45deg);
+}
+
+.clink{
+  text-decoration: underline;
+  cursor: pointer;
 }

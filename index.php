@@ -12,33 +12,33 @@
         <!--===========================================================-->
         <link rel="stylesheet" href="css/page_base.css" charset="UTF-8">
         <link rel="stylesheet" href="css/index.css" charset="UTF-8">
-        
+     
         <script src="js/load.js"></script>
     </head>
     <body>
         <div id="page_wrapper">
             <div id="top_image"><label for="">Y's 雑記帳</label></div>
             <header>
-
+            <iframe width="100%" src="headermenu.html" id="hbar" frameborder="0" scrolling="no" onload="headjuster()"></iframe>
+<!--
                 <div id="main_menu">
                     <ul>
                         <li>
-                            <a href="index.php"><img src="svg/home_ic.svg">トップ</a>
+                            <a href="index.php"><img src="icon/home32.png">トップ</a>
                         </li>
                         <li>
-                        <a href="articlelist.php"><img src="svg/book_ic.svg">雑記帳</a>
+                        <a href="articlelist.php"><img src="icon/book32.png">雑記帳</a>
                         </li>
                         <li>
-                            <a href="practiceworks.php"><img src="svg/file_ic.svg">練習作</a>
+                            <a href="practiceworks.php"><img src="icon/folder32.png">練習作</a>
                         </li>
                         <li>
-                            <a href="links.php"><img src="svg/link_ic.svg">リンク</a>
+                            <a href="links.php"><img src="icon/Link32.png">リンク</a>
                         </li>
 
 
                     </ul>
-                </div>
-
+                </div>-->
             </header>
             <!--======================================-->
             <div id="breadcrumbs">
@@ -102,7 +102,7 @@
                     </div>
                 </main>
                 <aside>
-                    <iframe width="100%" src="sidebar.php" id="sbar" frameborder="0" scrolling="no" onload="sideadjuster()"></iframe>
+                    <iframe width="100%" src="sidebar.php" id="sbar" frameborder="0" scrolling="no" onchange="sideadjuster()" onload="sideadjuster()"></iframe>
                 </aside>
             </div>
             <!--======================================-->

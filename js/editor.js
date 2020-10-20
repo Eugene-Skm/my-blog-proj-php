@@ -40,5 +40,5 @@ function valueset(sn){
 
 function openimgchoice(){
 	localStorage.setItem('useimgID', "null");
-	window.open('imglistpage.php', null, 'width=500,toolbar=yes,menubar=yes,scrollbars=yes')
+	window.open('imglistpage.php', null, 'width=500,toolbar=yes,menubar=yes,scrollbars=yes');
 }

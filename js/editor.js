@@ -6,8 +6,10 @@ setTimeout('x()',2000);
 function x(){
 	console.log("X")
 	sname=localStorage.getItem("useimgID");
+
 	if(sname!="null"){
 		valueset(sname);
+		console.log(sname)
 		sname=""
 		localStorage.setItem('useimgID', "null");
 	}

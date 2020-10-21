@@ -106,11 +106,12 @@ if (@$_POST['submit1']) {
     <body onload="">
         <div id="page_wrapper">
             <div id="top_image">
-                <label for="">Y's 雑記帳</label>
+            <div id="top_image"><label for="">Y's 雑記帳:管理ページ</label></div>
+
             </div>
             <header>
 
-            <iframe width="100%" src="headermenu.html" id="hbar" frameborder="0" scrolling="no" onload="headjuster()"></iframe>
+           <!-- <iframe width="100%" src="headermenu.html" id="hbar" frameborder="0" scrolling="no" onload="headjuster()"></iframe>
 <!--
                 <div id="main_menu">
                     <ul>
@@ -126,8 +127,6 @@ if (@$_POST['submit1']) {
                         <li>
                             <a href="links.php"><img src="icon/Link32.png">リンク</a>
                         </li>
-
-
                     </ul>
                 </div>-->
 
@@ -190,13 +189,13 @@ if (@$_POST['submit1']) {
                                 $cpnum++;
                             }
                             $preP=$np-1; $nexP=$np+1;
-                            if($np==$cpnum){
-                                $nexp=-99;
+                            
+                            if((int)$np==(int)$cpnum){
+                                $nexP=-99;
                             }
                             if($np==1){
                                 $preP=-99;
                             }
-
                         ?>
                         <?php  for($i=0; $i<$arnum;$i++){ ?>
                         <?php  $place=(($np-1)*10)+$i?>

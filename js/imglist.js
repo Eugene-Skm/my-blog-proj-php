@@ -1,13 +1,12 @@
 var sname="";
-
+var aa=""
 function imgselected(){
 	var elements = document.getElementsByName("imgselect");
 	var t=seljudge(elements);
-	var a = elements[t].value;
+	aa = elements[t].value;
 	var b = elements[t].id;
-
 	window.opener.form.imid.value=b;
-	localStorage.setItem('useimgID', b);
+	localStorage.setItem('useimgID', aa);
 	window.close();
 }
 function newimagepage(){
@@ -34,7 +33,8 @@ function eimagepage(){
 }
 function seljudge(element){
 	// 選択状態の値を取得
-	for ( var a="", i=element.length; i--; ) {
+	for ( var i="", i=element.length; i--; ) {
+		element[i].value;
 		if ( element[i].checked ) {
 			
 			return i;

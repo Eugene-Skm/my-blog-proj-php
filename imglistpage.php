@@ -1,13 +1,14 @@
 <?php
 session_start();
-//debug_to_console($post_type,$_SESSION["ID"]);
 
-//$userid=$_SESSION["ID"]
-/*if (!isset($_SESSION["NAMEADMINS"])) {
-    header("Location: adminlogin.php");
+
+//Wuserid=$_SESSION["ID"];
+/* if (!isset($_SESSION["NAMEADMINS"])) {
+    //header("Location: adminlogin.php");
+    echo "<script>top.window.location = '/adminlogin.php'</script>"; //iframe解除用
     exit;
-}*/
-
+}
+*/
 //header("Location: ../home.html");  // メイン画面へ遷移
 $db['host'] = "localhost";  // DBサーバのURL
 $db['user'] = "root";  // ユーザー名
@@ -77,9 +78,9 @@ $imid= uniqid(mt_rand());
     </head>
     <body>
         <div id="page_wrapper">
-            <div id="top_image"></div>
+        <div id="top_image"><label for="">Y's 雑記帳:管理ページ</label></div>
             <header>
-            <iframe width="100%" src="headermenu.html" id="hbar" frameborder="0" scrolling="no" onload="headjuster()"></iframe>
+         <!--   <iframe width="100%" src="headermenu.html" id="hbar" frameborder="0" scrolling="no" onload="headjuster()"></iframe>
 <!--
                 <div id="main_menu">
                     <ul>
@@ -141,7 +142,7 @@ $imid= uniqid(mt_rand());
                         <?php foreach ($ists as $img) { ?>
                             <div class="imgwrap">
                             <input type="hidden"  name="pimid" value="<?php echo $img['imgid'] ?>">
-                                <input type="radio" name="imgselect" id="<?php echo $img['imgid'] ?>" class="imselradio" value="<?php echo $img['fname'] ?>">
+                                <input type="radio" name="imgselect" id="<?php echo $img['imgid']?>" class="imselradio" value="<?php echo $img['fname'] ?>">
                                 <label for="<?php echo $img['imgid'] ?>" class="img">
                                     <img src="blogimgs/<?php echo $img['fname'] ?>" alt="">
                                 </label>

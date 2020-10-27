@@ -27,7 +27,7 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
             $db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
             
             
-              $st2 = $pdo->query("SELECT * FROM imgs");
+              $st2 = $pdo->query("SELECT * FROM imgs WHERE imgid!='null'");
               $ists = $st2->fetchAll();
               $imct= count($ists);
 
@@ -68,11 +68,7 @@ $imid= uniqid(mt_rand());
         <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
         <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
         
-        <link rel="stylesheet" type="text/css" href="trix/trix.css">
-        <script src="trix/trix-core.js"></script>
-        
         <script src="js/load.js"></script>
-		
 		<script src="js/imglist.js"></script>
 
     </head>

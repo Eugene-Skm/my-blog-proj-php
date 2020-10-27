@@ -21,9 +21,9 @@ $db['dbname'] = "brog_db";  // データベース名
 	}
 
   $error =  '';
-  $title = $_POST['title'];
-$describ = $_POST['description'];
-$cont = $_POST['content'];
+  $title = htmlspecialchars($_POST['title'], ENT_QUOTES);
+$describ = htmlspecialchars($_POST['description'], ENT_QUOTES); 
+$cont =$_POST['content'];
 $aid = $_POST['artid'];
 $iid = $_POST['imgid'];
 $cat1 = $_POST['cat1'];
@@ -39,7 +39,9 @@ $cat5 = $_POST['cat5'];
 		if (!$error) {
 			$pdo = new PDO($dsn, $db['user'], 
 			$db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-
+			if($iid==""){
+				$iid='null';
+			}
 			$st = $pdo->query("INSERT INTO articles(article_id,postday,title,descript,content,thumb,category_id1,category_id2,category_id3,category_id4,category_id5) VALUES('$aid','$pday','$title','$describ','$cont','$iid','$cat1','$cat2','$cat3','$cat4','$cat5')");
 			
 

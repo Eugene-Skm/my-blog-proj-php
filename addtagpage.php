@@ -63,8 +63,6 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
         <link rel="stylesheet" href="css/page_base.css" charset="UTF-8">
 		<link rel="stylesheet" href="css/kanrip.css" charset="UTF-8">
 		
-		<link rel="stylesheet" type="text/css" href="trix/trix.css">
-        <script src="trix/trix-core.js"></script>
         <script src="js/load.js"></script>
         
     </head>

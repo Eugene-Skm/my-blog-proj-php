@@ -79,7 +79,6 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="description" content="">
-		<meta name="robots" content="noindex,nofollow">
         <link rel="canonical" href="https://????.com">
         <!--サイト公開時 関係性-->
         <!--===========================================================-->
@@ -89,38 +88,14 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
         <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
         <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
         
-        <link rel="stylesheet" type="text/css" href="trix/trix.css">
-        <script src="trix/trix-core.js"></script>
-        
-        <script src="js/editor.js"></script>
-        <script src="js/load.js"></script>
-        
+		<script src="js/editor.js"></script>
 
     </head>
     <body>
         <div id="page_wrapper">
         <div id="top_image"><label for="">Y's 雑記帳:管理ページ</label></div>
             <header>
-           <!-- <iframe width="100%" src="headermenu.html" id="hbar" frameborder="0" scrolling="no" onload="headjuster()"></iframe>
-<!--
-                <div id="main_menu">
-                    <ul>
-                        <li>
-                            <a href="index.php"><img src="icon/home32.png">トップ</a>
-                        </li>
-                        <li>
-                        <a href="articlelist.php"><img src="icon/book32.png">雑記帳</a>
-                        </li>
-                        <li>
-                            <a href="practiceworks.php"><img src="icon/folder32.png">練習作</a>
-                        </li>
-                        <li>
-                            <a href="links.php"><img src="icon/Link32.png">リンク</a>
-                        </li>
-
-
-                    </ul>
-                </div>-->
+              
 
             </header>
             <!--======================================-->

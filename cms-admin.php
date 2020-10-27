@@ -63,7 +63,6 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
        
 		
 		<link rel="stylesheet" type="text/css" href="css/cmsp.css">
-        <script src="trix/trix-core.js"></script>
         <script src="js/load.js"></script>
         
     </head>
@@ -73,13 +72,19 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
 				<li><a href="index.php" target="_blank">実サイト確認</a></li>
 			</ul>
 			<ul>
-				<li><a href="imglistpage.php" target="pp">画像管理</a></li>
-			</ul>
-			<ul>
-				<li><a href="addtagpage.php" target="pp">カテゴリ等管理</a></li>
+				<li><a href="addarticlepage.php" target="pp">記事追加</a></li>
 			</ul>
 			<ul>
 				<li><a href="adminarticlespage.php?WorA=A" target="pp">記事管理</a></li>
+			</ul>
+			<ul>
+				<li><a href="imglistpage.php" target="pp">画像管理</a></li>
+			</ul>
+			<ul>
+				<li><a href="infoeditpage.php" target="pp">トップその他管理</a></li>
+			</ul>
+			<ul>
+				<li><a href="addtagpage.php" target="pp">カテゴリ等管理</a></li>
 			</ul>
 			<ul>
 				<li><a href="adminarticlespage.php?WorA=W" target="pp" disabled>作品管理</a></li>

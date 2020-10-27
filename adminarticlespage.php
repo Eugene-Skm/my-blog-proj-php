@@ -105,10 +105,8 @@ if (@$_POST['submit1']) {
     </head>
     <body onload="">
         <div id="page_wrapper">
-            <div id="top_image">
             <div id="top_image"><label for="">Y's 雑記帳:管理ページ</label></div>
 
-            </div>
             <header>
 
            <!-- <iframe width="100%" src="headermenu.html" id="hbar" frameborder="0" scrolling="no" onload="headjuster()"></iframe>

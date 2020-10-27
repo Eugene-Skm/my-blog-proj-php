@@ -20,10 +20,18 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
 
 // 3. エラー処理
         try {
-            $pdo = new PDO($dsn, $db['user'], 
-            $db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-              $st = $pdo->query("SELECT * FROM article_categories Where id != 'null'  ORDER BY category_count DESC");
-              $cats = $st->fetchAll();
+			$pdo = new PDO($dsn, $db['user'], 
+			$db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+
+			$st = $pdo->query("SELECT * FROM article_categories");
+			$cats = $st->fetchAll();
+			
+            $P_desc="";$P_profimgnm="";$P_profimgid="";
+			$profest = $pdo->query("SELECT * FROM profiles As P inner join imgs As I ON P.prof_img = I.imgid WHERE P.id = 'profile'  ");
+			$profsts = $profest->fetchAll();
+			$P_desc=$profsts[0]['prof_description'];
+			$P_profimgnm=$profsts[0]['fname'];
+			$P_profimgid=$profsts[0]['imgid'];
         }  catch (PDOException $e) {
             $errorMessage = 'データベースエラー';
             //$errorMessage = $sql;
@@ -54,10 +62,11 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
 		<div id="profile_part" class="asidelabel_parts">
 			<label for="profile_part" class="aside_label"><img src="icon/profile32.png">プロフィール</label>
 			<div id="profile_img_p">
-				<img src="icon/profile32.png" id="profile_img" alt="プロフィール画像">
+				<img src="blogimgs/<?php echo $P_profimgnm;?>" id="profile_img" alt="プロフィール画像">
+
 			</div>
 			<div id="profile_description" class="asidecontent_detail">
-				大学3年です。 日々それなりに楽しんで生きてます。
+			<?php echo $P_desc?>
 			</div>
 		</div>
 		<div id="past_part" class="asidelabel_parts">

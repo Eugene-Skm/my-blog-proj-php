@@ -85,7 +85,7 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
 				<ul>
 					<?php foreach ($cats as $cat) { ?>
 							<li>
-								<a href="/articlelist.php/?cat=<?php echo $cat['id'] ?>" target="_parent">
+								<a href="articlelist.php?WorA=A&CaT=<?php echo $cat['id'] ?>" target="_parent">
 								<?php echo $cat['named'] ?>
 								(<?php echo $cat['category_count'] ?>)</a>
 							</li>

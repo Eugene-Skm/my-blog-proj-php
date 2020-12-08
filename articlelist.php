@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('Asia/Tokyo');
 //debug_to_console($post_type,$_SESSION["ID"]);
 
 //$userid=$_SESSION["ID"]
@@ -21,7 +22,7 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
         try {
             $pdo = new PDO($dsn, $db['user'], 
             $db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-            
+            $tday=date('Y-m-d');
             if(isset($_GET['WorA'])){
                 $WA=$_GET['WorA'];
                 if($WA=='A'){
@@ -29,9 +30,13 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
                     $cats = $st->fetchAll();
                    // $Ast = $pdo->query("SELECT article_id, postday,   FROM articles As A1, article_categories As A2 WHERE");
                    // $Asts = $Ast->fetchAll();
-                    $Ast = $pdo->query("SELECT article_id, title,postday,visibility, b.named AS CN1, c.named AS CN2, d.named AS CN3, e.named AS CN4, f.named AS CN5 FROM articles AS a INNER JOIN article_categories AS b ON a.category_id1=b.id INNER JOIN article_categories AS c ON a.category_id2=c.id INNER JOIN article_categories AS d ON a.category_id3=d.id INNER JOIN article_categories AS e ON a.category_id4=e.id INNER JOIN article_categories AS f ON a.category_id5=f.id ORDER BY postday DESC" );
+                    $Ast = $pdo->query("SELECT article_id, descript, title,postday,visibility,a.category_id1 AS CID1,a.category_id2 AS CID2,a.category_id3 AS CID3,a.category_id4 AS CID4,a.category_id5 AS CID5, b.named AS CN1, c.named AS CN2, d.named AS CN3, e.named AS CN4, f.named AS CN5, i.fname AS INAME FROM articles AS a INNER JOIN article_categories AS b ON a.category_id1=b.id INNER JOIN article_categories AS c ON a.category_id2=c.id INNER JOIN article_categories AS d ON a.category_id3=d.id INNER JOIN article_categories AS e ON a.category_id4=e.id INNER JOIN article_categories AS f ON a.category_id5=f.id INNER JOIN imgs AS i ON a.thumb=i.imgid WHERE postday <= '$tday' AND visibility !=0 ORDER BY postday DESC" );
                     $Asts = $Ast->fetchAll();
-                    //var_dump($Asts);
+                    if(isset($_GET['CaT'])){
+                        $Cat=$_GET['CaT'];
+                        $Ast = $pdo->query("SELECT article_id,descript, title,postday,visibility,a.category_id1 AS CID1,a.category_id2 AS CID2,a.category_id3 AS CID3,a.category_id4 AS CID4,a.category_id5 AS CID5, b.named AS CN1, c.named AS CN2, d.named AS CN3, e.named AS CN4, f.named AS CN5, i.fname AS INAME FROM articles AS a INNER JOIN article_categories AS b ON a.category_id1=b.id INNER JOIN article_categories AS c ON a.category_id2=c.id INNER JOIN article_categories AS d ON a.category_id3=d.id INNER JOIN article_categories AS e ON a.category_id4=e.id INNER JOIN article_categories AS f ON a.category_id5=f.id INNER JOIN imgs AS i ON a.thumb=i.imgid WHERE a.category_id1='$Cat' OR a.category_id2='$Cat' OR a.category_id3='$Cat' OR a.category_id4='$Cat' OR a.category_id5='$Cat' AND postday <= '$tday' AND visibility !=0 ORDER BY postday DESC" );
+                        $Asts = $Ast->fetchAll();
+                    }
                 }else if($WA=='W'){
                     
                 }
@@ -94,77 +99,37 @@ if (@$_POST['submit1']) {
         <!--サイト公開時 関係性-->
         <!--===========================================================-->
         <link rel="stylesheet" href="css/page_base.css" charset="UTF-8">
-        <link rel="stylesheet" href="css/kanrip.css" charset="UTF-8">
-        <link rel="stylesheet" href="css/articlepage.css" charset="UTF-8">
-        <script src="js/adminal.js" charset="utf-8"></script>
-        <script src="js/load.js"></script>
+        <link rel="stylesheet" href="css/lister_style1.css" charset="UTF-8" >
+        <link rel="stylesheet" href="css/articlepage.css" charset="UTF-8" >
+        <script src="js/list_type.js" charset="utf-8"></script>
+        <script src="js/page_transition.js" charset="utf-8"></script>
+        <script src="js/load.js" charset="utf-8"></script>
 
     </head>
-    <body onload="">
+    <body onload="bol(1)">
         <div id="page_wrapper">
-            <div id="top_image"><label for="">Y's 雑記帳:管理ページ</label></div>
+            <div id="top_image"><label for="">Y's 雑記帳</label></div>
 
             <header>
-
-           <!-- <iframe width="100%" src="headermenu.html" id="hbar" frameborder="0" scrolling="no" onload="headjuster()"></iframe>
-                <div id="main_menu">
-                    <ul>
-                        <li>
-                            <a href="index.php"><img src="icon/home32.png">トップ</a>
-                        </li>
-                        <li>
-                        <a href="articlelist.php"><img src="icon/book32.png">雑記帳</a>
-                        </li>
-                        <li>
-                            <a href="practiceworks.php"><img src="icon/folder32.png">練習作</a>
-                        </li>
-                        <li>
-                            <a href="links.php"><img src="icon/Link32.png">リンク</a>
-                        </li>
-                    </ul>
-                </div>-->
-
+            <iframe width="100%" src="headermenu.html" id="hbar" frameborder="0" scrolling="no" onload="headjuster()"></iframe>
+           
             </header>
             <!--======================================-->
-            <div id="modalwrap">
-                <div id="modal">
-                    <form action="adminarticlespage.php?WorA=A" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="A_id" id="A_id" value="">
-                        <fieldset class="edimodalcont" id="AD" style="display:none;">
-                            <h4 id="Dar">記事削除</h4>
-                            <label for="" id="confirmtex"></label>
-                            <input type="submit" name="submit1" id="" onclick="" value="削除">
-                            <input type="button" name="cancel" onclick="document.getElementById('modalwrap').style.display='none'" value="キャンセル">
-
-                        </fieldset>
-                        <fieldset class="edimodalcont" id="VC" style="display:none;">
-                            <h4 id="Dar">表示変更</h4>
-                            サイト上での表示状態の変更
-                            <select name="visiblenum" id="">
-                                <option value="1" id='vs1'>表示</option>
-                                <option value="0" id='vs0'>非表示</option>
-                            </select>
-                            <input type="submit" name="submit2" id="" onclick="" value="変更">
-                            <input type="button" name="cancel" onclick="document.getElementById('modalwrap').style.display='none'" value="キャンセル">
-                        </fieldset>
-                        
-                    </form>
-                </div>
-            </div>
+            <!--<input onclick=''>-->
+            
             <div id="main_wrapper">
                 <main>
-                    <label>記事一覧
-                    </label>
+                    <label>記事一覧 </label>
+                    <div id="list_type">
+                        <input type="radio" name="list_type_radio" id="column_list" value="COLUMN" onchange="change_check()" checked>
+                        <label for="column_list" class="list_type_button" id="label_column_list"><img src="svg/list.svg" alt="一覧リスト"></label>
+                        <input type="radio" name="list_type_radio" id="bg_column_list" value="BGCOLUMN" onchange="change_check()" >
+                        <label for="bg_column_list" class="list_type_button" id="label_bg_column_list"><img src="svg/bg_list_ic.svg" alt="一覧リスト"></label>
+                        <input type="radio" name="list_type_radio" id="grid_list"value="GRID" onchange="change_check()">
+                        <label for="grid_list" class="list_type_button" id="label_grid_list"><img src="svg/grid.svg" alt="一覧リスト"></label>
+                    </div>
                     <?php echo $error?>
                     <div id="articles_list">
-                        <div class="article" id="tag">
-                            <label>タイトル</label>
-                            <label>投稿日</label>
-                            <label>カテゴリ</label>
-                            <label>編集</label>
-                            <label>削除</label>
-                            <label>表示状態</label>
-                        </div>
                         <?php
                             if(isset($_GET['pnum'])){
                                 $np=$_GET['pnum'];
@@ -193,28 +158,35 @@ if (@$_POST['submit1']) {
                         ?>
                         <?php  for($i=0; $i<$arnum;$i++){ ?>
                         <?php  $place=(($np-1)*10)+$i?>
-                        <div class="article">
-                            <div class="article_title">
-                                <h1><?php echo $Asts[$place]['title'] ?></h1>
-                            </div>
-                            <div class="article_posted_date"><?php echo $Asts[$place]['postday'] ?></div>
-                            <div class="article_categories">
-                                <?php for($t=1; $t<= 5; $t++){ 
-                                            if($Asts[$place]['CN'.$t]!='null'){?>
-                                <div class="article_category">
-                                    <?php echo $Asts[$place]['CN'.$t] ?>
-                                </div>
-                                <?php }
-                                        }?>
 
-                                <div class="article_category">
-                                    diary
+
+                        <div class="article" onclick="pgt('article.html?At=<?php echo $Asts[$place]['article_id']?>')">
+
+                                <div class="article_thumb_p">
+                                    <img src="blogimgs/<?php echo $Asts[$place]['INAME']?>" class="article_thumb_img">
+                                </div>
+                                <div class="article_detail">
+                                    <div class="article_info list_detail_item">
+                                        <div class="article_posted_date"><?php echo $Asts[$place]['postday'] ?></div>
+                                        <div class="article_categories">
+                                        <?php for($t=1; $t<= 5; $t++){ 
+                                            if($Asts[$place]['CN'.$t]!='null'){?>
+                                                <div class="article_category">
+                                                    <a href="articlelist.php?WorA=A&CaT=<?php echo $Asts[$place]['CID'.$t]?>">
+                                                        <?php echo $Asts[$place]['CN'.$t] ?>
+                                                    </a>
+                                                </div>
+                                            <?php }
+                                        }?>
+                                        </div>
+                                    </div>
+                                    <div class="article_title list_detail_item"><h1><?php echo $Asts[$place]['title'] ?></h1></div>
+                                    <div class="article_description list_detail_item">
+                                        <p><?php echo $Asts[$place]['descript'] ?></p>
+                                    </div>
+
                                 </div>
                             </div>
-                            <a href="addarticlepage.php?eaid=<?php echo $Asts[$place]['article_id']?>">編集</a>
-                            <label class="clink" onclick="delconfirm('<?php echo $Asts[$place]['article_id']?>','<?php echo $Asts[$place]['title']?>')">削除</label>
-                            <label class="clink" onclick="visibilCha('<?php echo $Asts[$place]['article_id']?>',<?php echo $Asts[$place]['visibility']?>)"><?php if($Asts[$place]['visibility'] =='1'){ echo '表示';}else{echo '非表示';}?></label>
-                        </div>
                         <?php  } ?>
 
                     </div>

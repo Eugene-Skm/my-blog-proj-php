@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 //Wuserid=$_SESSION["ID"];
 /* if (!isset($_SESSION["NAMEADMINS"])) {
     //header("Location: adminlogin.php");

@@ -1,7 +1,14 @@
 :root{
 	box-sizing: border-box;
 }
+#main_wrapper{
+	grid-template-columns: 100%;
+}
 main{
+	display: inline-block;
+	width: 100%;
+	padding-left: 20%;
+	padding-right: 20%;
 	background: none;
 	border: none;
 	box-shadow: none;
@@ -54,7 +61,6 @@ main{
 #articles_list,
 #works_list{
 	display: grid;
-
 	grid-template-columns: 100%;
 	padding: 5px;
 }
@@ -64,7 +70,7 @@ main{
 	margin: 5px;
 }
 .article{
-	height: 120px;
+	height: auto;
 	padding: 5px 10px 5px 10px;
 	margin: 5px;
 	display: grid;
@@ -93,7 +99,6 @@ main{
 }
 .article_thumb_p{
 	position: relative;
-	display: none;
 	box-sizing: border-box;
 	width: 100%;
 	height: 100%;
@@ -125,9 +130,10 @@ main{
 .article_info{
 	display: inline-flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	font-size: 14px;
 	color: #777777;
-	height: 20px;
+	height: auto;
 	
 }
 #articles_list .article_info::after{
@@ -136,6 +142,9 @@ main{
 	background: #ff786e;
 	border-radius: 2px;
 	border: solid 1px #b4694e;
+	height: 22px;
+	line-height: 22px;
+	padding: 0px 5px 0px 5px;
 }
 #works_list .article_posted_date::after,
 #undergoing_work .article_posted_date::after{
@@ -145,6 +154,7 @@ main{
 	margin-left: 2px;
 	margin-right: 2px;
 	padding: 1px;
+	line-height: 22px;
 }
 .article_categories{
 	display: inline-flex;
@@ -158,15 +168,18 @@ main{
 	border-radius: 2px;
 	border: solid #95c483 1px;
 	cursor: initial;
+	height: 22px;
+	padding: 0px 5px 0px 5px;
 }
 .article_category a{
 	position: relative;
 	display: inline-block;
 	width: 100%;
 	height: 100%;
+	line-height: 22px;
 }
 .article_title{
-	height: 30px;
+	height: auto;
 	width: 100%;
 }
 .article_title h1{

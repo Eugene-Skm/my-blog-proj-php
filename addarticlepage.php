@@ -29,7 +29,7 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
               $st = $pdo->query("SELECT * FROM article_categories Where id != 'null'  ORDER BY category_count DESC");
               $cats = $st->fetchAll();
               $E_title="";$E_cont="";$E_desc="";$E_thumbid="";$E_thumbname="";$E_pday=date('Y-m-d');
-              $E_catid1="";$E_catid2="";$E_catid3="";$E_catid4="";$E_catid5="";
+              $E_catid1="";$E_catid2="";$E_catid3="";$E_catid4="";$E_catid5="";var_dump($E_pday);
               if(isset($_GET["eaid"])&&!empty($_GET["eaid"])){
                 $A_id=$_GET["eaid"];
                     $est = $pdo->query("SELECT * FROM articles Where article_id = '$A_id'");
@@ -184,11 +184,11 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
                             <input type="button" id="imgbutton" onclick="openimgchoice()" value="サムネ選択" style="margin: 0px;">
                             <label for="" id="imgname"><?php echo $E_thumbname;?></label>
                         </div>
-                        <?php if(!isset($_GET["eaid"])&&empty($_GET["eaid"])){
-                            echo '<label for="postday">投稿日(解禁日)</label>';
-                            echo '<input type="date" id="pday" name="postday" value="<?php echo $E_pday;?>">';
-                        }
-                        ?>
+                        
+                        <?php if(!isset($_GET["eaid"])&&empty($_GET["eaid"])){ ?>
+                            <label for="postday">投稿日(解禁日)</label>
+                            <input type="date" id="eday" name="postday" value="<?php echo $E_pday;?>">
+                        <?php }?>
                         
                         
                         <br>
@@ -240,7 +240,7 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
             </div>
             <!--======================================-->
             <footer>
-                <iframe src="footer.html" frameborder="0" scrolling="no"></iframe>
+                <iframe src="" frameborder="0" scrolling="no"></iframe>
 
             </footer>
         </div>

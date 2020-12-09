@@ -45,7 +45,7 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
         }  catch (PDOException $e) {
             $errorMessage = 'データベースエラー';
             //$errorMessage = $sql;
-        //W $e->getMessage() でエラー内容を参照可能（デバッグ時のみ表示）
+            //W $e->getMessage() でエラー内容を参照可能（デバッグ時のみ表示）
             echo $e->getMessage();
         }
 
@@ -179,6 +179,9 @@ if (@$_POST['submit1']) {
                                             <?php }
                                         }?>
                                         </div>
+                                        <?php  if($place==0){ ?>
+                                        <div class="new article_categories"></div>
+                                        <?php } ?>
                                     </div>
                                     <div class="article_title list_detail_item"><h1><?php echo $Asts[$place]['title'] ?></h1></div>
                                     <div class="article_description list_detail_item">

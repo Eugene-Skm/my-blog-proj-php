@@ -7,8 +7,8 @@
 main{
 	display: inline-block;
 	width: 100%;
-	padding-left: 20%;
-	padding-right: 20%;
+	padding-left: 10%;
+	padding-right: 10%;
 	background: none;
 	border: none;
 	box-shadow: none;
@@ -136,7 +136,7 @@ main{
 	height: auto;
 	
 }
-#articles_list .article_info::after{
+#articles_list .new::after{
 	visibility: visible;
 	content: 'New!';
 	background: #ff786e;
@@ -193,7 +193,7 @@ main{
 	font-size: 18px;
 	word-wrap: break-word;
 	color: #555555;
-	height: 65px;
+	height: auto;
 	overflow: unset;
 	overflow: hidden;
 	width: 100%;

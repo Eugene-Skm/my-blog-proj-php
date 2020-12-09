@@ -48,7 +48,7 @@ function change_check() {
 				for (var i = 0; i < article.length; i++) {
                     article[i].style.gridTemplateColumns = "25% 75%";
 					article[i].style.height = "auto";
-					articlethumb[i].style.height="100%";
+					articlethumb[i].style.height="170px";
 					articlethumb[i].style.width="100%";
                 }
 

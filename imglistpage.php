@@ -76,7 +76,7 @@ $imid= uniqid(mt_rand());
         <div id="top_image"><label for="">Y's 雑記帳:管理ページ</label></div>
             <header>
          <!--   <iframe width="100%" src="headermenu.html" id="hbar" frameborder="0" scrolling="no" onload="headjuster()"></iframe>
-<!--
+
                 <div id="main_menu">
                     <ul>
                         <li>

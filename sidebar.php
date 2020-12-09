@@ -23,7 +23,7 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
 			$pdo = new PDO($dsn, $db['user'], 
 			$db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 
-			$st = $pdo->query("SELECT * FROM article_categories");
+			$st = $pdo->query("SELECT * FROM article_categories WHERE id != 'null' ");
 			$cats = $st->fetchAll();
 			
             $P_desc="";$P_profimgnm="";$P_profimgid="";
@@ -83,14 +83,21 @@ $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbna
 			<label for="cat_part" class="aside_label"><img src="icon/tag32.png">カテゴリー</label>
 			<div id="categories">
 				<ul>
-					<?php foreach ($cats as $cat) { ?>
-							<li>
-								<a href="articlelist.php?WorA=A&CaT=<?php echo $cat['id'] ?>" target="_parent">
-								<?php echo $cat['named'] ?>
-								(<?php echo $cat['category_count'] ?>)</a>
-							</li>
-						<?php }?>
-					</ul>
+					<?php foreach ($cats as $cat) { 
+						$tday=date('Y-m-d');
+						$c=$cat['id'];
+						$Ast = $pdo->query("SELECT article_id FROM articles AS a WHERE (a.category_id1='$c' OR a.category_id2='$c' OR a.category_id3='$c' OR a.category_id4='$c' OR a.category_id5='$c') AND postday <= '$tday' AND visibility !=0");
+						$asts = $Ast->fetchAll();
+					?>
+					<?php if(count($asts)!=0){ ?>
+						<li>
+							<a href="articlelist.php?WorA=A&CaT=<?php echo $cat['id'] ?>" target="_parent">
+							<?php echo $cat['named'] ?>
+							(<?php echo count($asts)+1 ?>)</a>
+						</li>
+					<?php } 
+					}?>
+				</ul>
 			</div>
 		</div>
 	</body>
